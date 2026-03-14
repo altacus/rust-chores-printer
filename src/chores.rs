@@ -27,28 +27,32 @@ pub fn print_chores(name: &str, use_tomorrow: bool) -> Result<(), Box<dyn Error>
         .init()? // Initializes the printer (clears settings)
         .align(Alignment::Left)? // Left align for checklist format
         .text_size(2, 2)? // Normal text size
-        .text(&format!("{}'s Chores\n", name))?
+        .text(&format!("{}'s Chores", name))?
         .text(&date_str)?
         .text_size(1, 1)? // Normal text size
-        .text("\n Checklist\n")?
-        .text("  __ Stayed in bed?\n")?
-        .text("  __ Play Piano?\n")?
-        .text("\n Morning\n")?
-        .text("  __ Make Bed\n")?
-        .text("  __ Brush Teeth\n")?
-        .text("  __ Clean up Breakfast\n")?
-        .text("\n After School\n")?
-        .text("  __ Wash Hands\n")?
-        .text("  __ Unpack backpacks\n")?
-        .text("  __ Take Shower/Bath\n")?
-        .text("  __ Put away shoes/coat\n")?
-        .text("  __ Do homework\n")?
-        .text("\n Night time\n")?
-        .text("  __ Clean up dinner\n")?
-        .text("  __ Floss Teeth\n")?
-        .text("  __ Brush Teeth\n")?
-        .text("\n@}~~^~~~~~\n\n")?
-        .feed(6)?
+        .text(" Morning")?
+        .text("  __ Stayed in bed?")?
+        .text("  __ Make Bed")?
+        .text("  __ Brush Teeth")?
+        .text("  __ Clean up Breakfast")?
+        .feed(2)?
+        .text(" After School")?
+        .text("  __ Wash Hands")?
+        .text("  __ Unpack backpacks")?
+        .text("  __ Hang up coats & put away shoes")?
+        .text("  __ Put clothes in hamper")?
+        .text("  __ Take Shower/Bath")?
+        .text("  __ Put away shoes/coat")?
+        .text("  __ Do homework")?
+        .text("  __ Play Piano?")?
+        .feed(2)?
+        .text(" Night time")?
+        .text("  __ Set table")?
+        .text("  __ Clean up dinner")?
+        .text("  __ Vacuum/Mop")?
+        .text("  __ Floss Teeth")?
+        .text("  __ Brush Teeth")?
+        .feed(8)?
         .cut()?; // Cuts the paper
 
     Ok(())
